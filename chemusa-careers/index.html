@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join the Chem USA team — a woman-owned chemical supply company where your career, ambition, and impact matter.">
+  <title>Careers — Chem USA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0b1932;
+      --navy2:#0f2344;
+      --navy3:#162a50;
+      --blue:#3375b7;
+      --blue2:#2c80bc;
+      --purple:#8a1e8a;
+      --purple2:#6d1670;
+      --grad:linear-gradient(135deg,#3375b7 0%,#8a1e8a 100%);
+      --grad-soft:linear-gradient(135deg,rgba(51,117,183,.15) 0%,rgba(138,30,138,.15) 100%);
+      --white:#ffffff;
+      --light:#c8d8f0;
+      --grey:#7a93b8;
+      --border:rgba(255,255,255,.08);
+      --surface:rgba(255,255,255,.04);
+      --surface2:rgba(255,255,255,.07);
+      --radius:12px;
+      --font:'Inter',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--navy);color:var(--white);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%}
+
+    /* ── NAV ── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(11,25,50,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo img{height:44px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:4px;position:absolute;left:50%;transform:translateX(-50%)}
+    .nav-links a{padding:8px 18px;border-radius:6px;font-size:14px;font-weight:500;color:var(--light);letter-spacing:.02em;transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);background:var(--surface2)}
+    .nav-cta{background:var(--grad);color:#fff;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:.03em;transition:opacity .2s;white-space:nowrap}
+    .nav-cta:hover{opacity:.85;background:var(--grad)}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+    .nav-toggle span{width:22px;height:2px;background:var(--white);display:block;transition:all .3s}
+
+    /* ── HERO ── */
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:120px 24px 80px;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(51,117,183,.25) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 80% 70%,rgba(138,30,138,.2) 0%,transparent 60%),var(--navy);z-index:0}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;z-index:0;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 80%)}
+    .hero-inner{position:relative;z-index:1;max-width:860px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--grad-soft);border:1px solid rgba(51,117,183,.3);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-bottom:32px}
+    .hero-badge::before{content:'';width:6px;height:6px;background:var(--grad);border-radius:50%;display:inline-block}
+    .hero h1{font-size:clamp(40px,7vw,80px);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:28px}
+    .hero h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--light);font-weight:300;line-height:1.7;max-width:580px;margin:0 auto 48px}
+    .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-grad{background:var(--grad);color:#fff;padding:16px 36px;border-radius:10px;font-size:15px;font-weight:700;letter-spacing:.04em;transition:opacity .2s,transform .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-grad:hover{opacity:.88;transform:translateY(-2px)}
+    .btn-ghost{border:1px solid rgba(255,255,255,.2);color:var(--white);padding:16px 36px;border-radius:10px;font-size:15px;font-weight:500;transition:background .2s,border-color .2s}
+    .btn-ghost:hover{background:var(--surface2);border-color:rgba(255,255,255,.35)}
+    .hero-stats{display:flex;gap:48px;justify-content:center;margin-top:72px;padding-top:48px;border-top:1px solid var(--border);flex-wrap:wrap}
+    .hero-stat-num{font-size:36px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.02em}
+    .hero-stat-label{font-size:13px;color:var(--grey);margin-top:4px;letter-spacing:.04em;text-transform:uppercase;font-weight:500}
+
+    /* ── SECTION BASE ── */
+    .section{padding:100px 24px}
+    .section-inner{max-width:1120px;margin:0 auto}
+    .section-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+    .section-h2{font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
+    .section-sub{font-size:17px;color:var(--light);font-weight:300;line-height:1.7;max-width:580px}
+    .red-rule{width:40px;height:3px;background:var(--grad);margin:16px 0}
+
+    /* ── WHY JOIN ── */
+    .why-section{background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .why-header{text-align:center;margin-bottom:64px}
+    .why-header .section-sub{margin:0 auto}
+    .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+    .pillar{background:var(--surface);padding:40px 32px;border:1px solid var(--border);transition:background .25s,border-color .25s;position:relative;overflow:hidden}
+    .pillar::before{content:'';position:absolute;inset:0;background:var(--grad-soft);opacity:0;transition:opacity .3s}
+    .pillar:hover{background:var(--surface2);border-color:rgba(51,117,183,.3)}
+    .pillar:hover::before{opacity:1}
+    .pillar-icon{width:52px;height:52px;background:var(--grad);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative;z-index:1}
+    .pillar-icon svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .pillar h3{font-size:18px;font-weight:700;margin-bottom:12px;position:relative;z-index:1}
+    .pillar p{font-size:14px;color:var(--grey);line-height:1.7;font-weight:300;position:relative;z-index:1}
+
+    /* ── ROLES PREVIEW ── */
+    .roles-preview{padding:100px 24px}
+    .roles-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:24px}
+    .view-all{font-size:14px;font-weight:600;color:var(--blue2);display:flex;align-items:center;gap:6px;letter-spacing:.02em;transition:color .2s}
+    .view-all:hover{color:var(--white)}
+    .roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+    .role-card{background:var(--surface);border:1px solid var(--border);padding:32px;transition:background .2s,border-color .2s,transform .2s;position:relative;overflow:hidden}
+    .role-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--grad);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+    .role-card:hover{background:var(--surface2);border-color:rgba(51,117,183,.25);transform:translateY(-3px)}
+    .role-card:hover::after{transform:scaleX(1)}
+    .role-dept{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+    .role-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+    .role-card p{font-size:13px;color:var(--grey);line-height:1.6;font-weight:300;margin-bottom:24px}
+    .role-meta{display:flex;gap:12px;flex-wrap:wrap}
+    .role-tag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;background:var(--grad-soft);border:1px solid rgba(51,117,183,.2);color:var(--light);letter-spacing:.04em}
+    .role-arrow{margin-top:20px;font-size:13px;font-weight:600;color:var(--blue2);display:flex;align-items:center;gap:6px;transition:color .2s}
+    .role-card:hover .role-arrow{color:var(--white)}
+
+    /* ── CULTURE TEASER ── */
+    .culture-teaser{background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 24px}
+    .culture-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .culture-img-block{position:relative}
+    .culture-img-wrap{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--navy3);border:1px solid var(--border)}
+    .culture-img-wrap::after{content:'';position:absolute;inset:0;background:var(--grad-soft)}
+    .culture-img-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--grey)}
+    .culture-img-placeholder svg{width:40px;height:40px;stroke:currentColor;fill:none;stroke-width:1.5}
+    .culture-img-placeholder span{font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+    .culture-badge{position:absolute;bottom:-20px;right:-20px;background:var(--grad);color:#fff;border-radius:12px;padding:16px 20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+    .culture-text .section-sub{margin-bottom:32px}
+    .culture-bullets{display:flex;flex-direction:column;gap:16px}
+    .culture-bullet{display:flex;align-items:flex-start;gap:16px}
+    .bullet-dot{width:8px;height:8px;background:var(--grad);border-radius:50%;margin-top:7px;flex-shrink:0}
+    .culture-bullet p{font-size:15px;color:var(--light);line-height:1.6;font-weight:300}
+
+    /* ── QUOTE BAND ── */
+    .quote-band{background:var(--grad);padding:80px 24px;text-align:center}
+    .quote-band blockquote{font-size:clamp(20px,3vw,32px);font-weight:700;line-height:1.5;max-width:800px;margin:0 auto 24px;color:#fff;letter-spacing:-.01em}
+    .quote-attr{font-size:14px;color:rgba(255,255,255,.7);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+
+    /* ── CTA BOTTOM ── */
+    .cta-bottom{padding:120px 24px;text-align:center}
+    .cta-bottom h2{font-size:clamp(32px,5vw,60px);font-weight:800;letter-spacing:-.03em;margin-bottom:20px;line-height:1.1}
+    .cta-bottom h2 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .cta-bottom p{font-size:18px;color:var(--light);font-weight:300;max-width:500px;margin:0 auto 48px;line-height:1.7}
+
+    /* ── FOOTER ── */
+    footer{background:var(--navy2);border-top:1px solid var(--border);padding:60px 24px 32px}
+    .footer-inner{max-width:1120px;margin:0 auto}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .footer-brand img{height:48px;width:auto;margin-bottom:16px}
+    .footer-brand p{font-size:14px;color:var(--grey);line-height:1.7;font-weight:300;max-width:260px}
+    .footer-col h4{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+    .footer-col a{display:block;font-size:14px;color:var(--grey);margin-bottom:10px;transition:color .2s;font-weight:300}
+    .footer-col a:hover{color:var(--white)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer-bottom span{font-size:13px;color:var(--grey)}
+
+    /* ── MOBILE ── */
+    @media(max-width:900px){
+      .nav-links{display:none;position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(11,25,50,.98);padding:16px;gap:4px;border-bottom:1px solid var(--border);transform:none;left:0}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:14px 16px;font-size:15px;border-radius:8px}
+      .nav-cta{width:100%;text-align:center;padding:14px}
+      .nav-toggle{display:flex}
+      .pillars{grid-template-columns:1fr 1fr}
+      .roles-grid{grid-template-columns:1fr}
+      .culture-grid{grid-template-columns:1fr;gap:48px}
+      .footer-top{grid-template-columns:1fr 1fr}
+      .hero-stats{gap:32px}
+    }
+    @media(max-width:600px){
+      nav{padding:0 20px}
+      .pillars{grid-template-columns:1fr}
+      .footer-top{grid-template-columns:1fr}
+    }
+
+    /* ── REVEAL ── */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png" alt="Chem USA">
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/" class="active">Home</a>
+    <a href="/culture/">Culture</a>
+    <a href="/careers/">Careers</a>
+    <a href="/benefits/">Benefits</a>
+    <a href="/apply/" class="nav-cta">Apply Now</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge reveal">Woman-Owned &amp; Operated Since 2014</div>
+    <h1 class="reveal">Build Something<br><span>That Matters.</span></h1>
+    <p class="hero-sub reveal">Join a team where your ambition drives growth, your voice shapes culture, and your work powers industries across the country.</p>
+    <div class="hero-actions reveal">
+      <a href="/careers/" class="btn-grad">View Open Roles →</a>
+      <a href="/culture/" class="btn-ghost">Our Culture</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div>
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">Years in Business</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Premium Product Lines</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">50</div>
+        <div class="hero-stat-label">States Served</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Woman-Led</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY JOIN -->
+<section class="section why-section">
+  <div class="section-inner">
+    <div class="why-header reveal">
+      <div class="section-label">Why Chem USA</div>
+      <h2 class="section-h2">Where Purpose Meets Performance</h2>
+      <p class="section-sub">We built this company differently — and we hire the same way. If you're driven, resourceful, and ready to grow, you'll fit right in.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3>Real Ownership</h3>
+        <p>Every person on our team owns their role. We move fast, trust our people, and reward results — not tenure.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Inclusive Culture</h3>
+        <p>We're woman-owned from the top down. Diversity isn't a talking point here — it's our foundation and our advantage.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Growth Trajectory</h3>
+        <p>Over 30 years of combined leadership experience means mentorship at every level. Your career moves as fast as you do.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Flexibility Built In</h3>
+        <p>Work-life balance isn't a perk — it's part of how we operate. We judge results, not hours on a clock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN ROLES PREVIEW -->
+<section class="roles-preview">
+  <div class="section-inner">
+    <div class="roles-header reveal">
+      <div>
+        <div class="section-label">Open Positions</div>
+        <h2 class="section-h2">Find Your Role</h2>
+      </div>
+      <a href="/careers/" class="view-all">View All Openings →</a>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card reveal">
+        <div class="role-dept">Operations</div>
+        <h3>Warehouse &amp; Logistics Coordinator</h3>
+        <p>Oversee daily warehouse operations, carrier coordination with UPS and FedEx, and ensure on-time delivery across our distribution network.</p>
+        <div class="role-meta">
+          <span class="role-tag">Full-Time</span>
+          <span class="role-tag">South Florida</span>
+          <span class="role-tag">On-Site</span>
+        </div>
+        <div class="role-arrow">Learn More →</div>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-dept">Sales</div>
+        <h3>B2B Sales Representative</h3>
+        <p>Grow our industrial client base by building relationships with facility managers, maintenance teams, and procurement professionals nationwide.</p>
+        <div class="role-meta">
+          <span class="role-tag">Full-Time</span>
+          <span class="role-tag">Remote / Hybrid</span>
+          <span class="role-tag">Base + Commission</span>
+        </div>
+        <div class="role-arrow">Learn More →</div>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-dept">Supply Chain</div>
+        <h3>Supply Chain &amp; Procurement Specialist</h3>
+        <p>Manage supplier relationships, inventory planning, and quality control across our three premium chemical product lines.</p>
+        <div class="role-meta">
+          <span class="role-tag">Full-Time</span>
+          <span class="role-tag">South Florida</span>
+          <span class="role-tag">Hybrid</span>
+        </div>
+        <div class="role-arrow">Learn More →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE TEASER -->
+<section class="culture-teaser">
+  <div class="section-inner">
+    <div class="culture-grid">
+      <div class="culture-img-block reveal">
+        <div class="culture-img-wrap">
+          <div class="culture-img-placeholder">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Team Photo</span>
+          </div>
+        </div>
+        <div class="culture-badge">Women-Led<br>Since Day One</div>
+      </div>
+      <div class="culture-text reveal">
+        <div class="section-label">Our Culture</div>
+        <div class="red-rule"></div>
+        <h2 class="section-h2">Built by Women.<br>Powered by Purpose.</h2>
+        <p class="section-sub">From our founding in 2014, Chem USA has been driven by women who refused to accept the status quo in industrial supply.</p>
+        <div class="culture-bullets">
+          <div class="culture-bullet">
+            <div class="bullet-dot"></div>
+            <p>A leadership team that champions women at every level of the organization</p>
+          </div>
+          <div class="culture-bullet">
+            <div class="bullet-dot"></div>
+            <p>A fast-moving, entrepreneurial environment where your ideas actually get implemented</p>
+          </div>
+          <div class="culture-bullet">
+            <div class="bullet-dot"></div>
+            <p>Direct mentorship from a leadership team with 30+ years of combined industry experience</p>
+          </div>
+        </div>
+        <a href="/culture/" class="btn-grad" style="display:inline-flex;margin-top:36px">Explore Our Culture →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<div class="quote-band">
+  <blockquote class="reveal">"We didn't just want to run a company — we wanted to build something that gave other women a real seat at the table."</blockquote>
+  <div class="quote-attr reveal">— Founder, Chem USA</div>
+</div>
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom">
+  <div class="section-inner" style="text-align:center">
+    <div class="section-label" style="text-align:center" >Ready to Join Us?</div>
+    <h2 class="reveal">Your Next Chapter<br><span>Starts Here.</span></h2>
+    <p class="reveal">We're growing fast and looking for driven, ambitious people ready to make their mark in the industrial supply industry.</p>
+    <div class="hero-actions reveal">
+      <a href="/apply/" class="btn-grad">Apply Today →</a>
+      <a href="/careers/" class="btn-ghost">Browse Openings</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="Chem USA">
+        <p>A woman-owned chemical maintenance supply company delivering premium formulas and careers that matter.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/culture/">Our Culture</a>
+        <a href="/benefits/">Benefits</a>
+        <a href="https://chemusasouthflorida.com" target="_blank">Products Site</a>
+      </div>
+      <div class="footer-col">
+        <h4>Careers</h4>
+        <a href="/careers/">All Openings</a>
+        <a href="/careers/#operations">Operations</a>
+        <a href="/careers/#sales">Sales</a>
+        <a href="/careers/#supply-chain">Supply Chain</a>
+      </div>
+      <div class="footer-col">
+        <h4>Apply</h4>
+        <a href="/apply/">Submit Application</a>
+        <a href="mailto:careers@chemusasouthflorida.com">Email Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Chem USA. All Rights Reserved.</span>
+      <span>Woman-Owned &amp; Operated · South Florida</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  reveals.forEach(r => io.observe(r));
+
+  // Mobile nav
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+    document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+</script>
+</body>
+</html>

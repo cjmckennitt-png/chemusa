@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Roles — Chem USA Careers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#0b1932;--navy2:#0f2344;--navy3:#162a50;--blue:#3375b7;--blue2:#2c80bc;--purple:#8a1e8a;--grad:linear-gradient(135deg,#3375b7 0%,#8a1e8a 100%);--grad-soft:linear-gradient(135deg,rgba(51,117,183,.15) 0%,rgba(138,30,138,.15) 100%);--white:#ffffff;--light:#c8d8f0;--grey:#7a93b8;--border:rgba(255,255,255,.08);--surface:rgba(255,255,255,.04);--surface2:rgba(255,255,255,.07);--radius:12px;--font:'Inter',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--navy);color:var(--white);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(11,25,50,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-logo img{height:44px;width:auto}
+    .nav-links{display:flex;align-items:center;gap:4px;position:absolute;left:50%;transform:translateX(-50%)}
+    .nav-links a{padding:8px 18px;border-radius:6px;font-size:14px;font-weight:500;color:var(--light);letter-spacing:.02em;transition:color .2s,background .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);background:var(--surface2)}
+    .nav-cta{background:var(--grad);color:#fff;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:.03em;transition:opacity .2s}
+    .nav-cta:hover{opacity:.85;background:var(--grad)}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+    .nav-toggle span{width:22px;height:2px;background:var(--white);display:block}
+
+    .page-header{padding:160px 24px 80px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+    .page-header-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(51,117,183,.2) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(138,30,138,.15) 0%,transparent 60%),var(--navy2);z-index:0}
+    .page-header-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+    .page-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px}
+    .page-h1{font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:20px}
+    .page-h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .page-sub{font-size:18px;color:var(--light);font-weight:300;line-height:1.7}
+
+    .section{padding:80px 24px}
+    .section-inner{max-width:1120px;margin:0 auto}
+    .section-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+    .section-h2{font-size:clamp(24px,3.5vw,40px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:40px}
+    .btn-grad{background:var(--grad);color:#fff;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;letter-spacing:.04em;transition:opacity .2s,transform .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-grad:hover{opacity:.88;transform:translateY(-2px)}
+
+    /* DEPT FILTERS */
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:48px}
+    .filter-btn{padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;letter-spacing:.04em;border:1px solid var(--border);background:var(--surface);color:var(--light);cursor:pointer;transition:all .2s}
+    .filter-btn.active,.filter-btn:hover{background:var(--grad);color:#fff;border-color:transparent}
+
+    /* JOB LISTINGS */
+    .dept-section{margin-bottom:64px}
+    .dept-label{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+    .dept-name{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .dept-rule{flex:1;height:1px;background:var(--border)}
+    .job-card{background:var(--surface);border:1px solid var(--border);padding:28px 32px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;transition:background .2s,border-color .2s;margin-bottom:2px}
+    .job-card:hover{background:var(--surface2);border-color:rgba(51,117,183,.25)}
+    .job-title{font-size:17px;font-weight:700;margin-bottom:8px}
+    .job-desc{font-size:14px;color:var(--grey);line-height:1.6;font-weight:300;max-width:600px}
+    .job-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .job-tag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;background:var(--grad-soft);border:1px solid rgba(51,117,183,.2);color:var(--light);letter-spacing:.04em}
+    .job-apply{background:var(--grad);color:#fff;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.04em;white-space:nowrap;transition:opacity .2s}
+    .job-apply:hover{opacity:.85}
+
+    /* NO ROLE MATCH */
+    .open-cta{background:var(--grad-soft);border:1px solid rgba(51,117,183,.2);border-radius:16px;padding:60px;text-align:center;margin-top:64px}
+    .open-cta h3{font-size:24px;font-weight:700;margin-bottom:12px}
+    .open-cta p{font-size:16px;color:var(--light);font-weight:300;margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+    footer{background:var(--navy2);border-top:1px solid var(--border);padding:60px 24px 32px}
+    .footer-inner{max-width:1120px;margin:0 auto}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .footer-brand img{height:48px;width:auto;margin-bottom:16px}
+    .footer-brand p{font-size:14px;color:var(--grey);line-height:1.7;font-weight:300;max-width:260px}
+    .footer-col h4{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+    .footer-col a{display:block;font-size:14px;color:var(--grey);margin-bottom:10px;transition:color .2s;font-weight:300}
+    .footer-col a:hover{color:var(--white)}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer-bottom span{font-size:13px;color:var(--grey)}
+
+    @media(max-width:900px){
+      nav{padding:0 20px}
+      .nav-links{display:none;position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(11,25,50,.98);padding:16px;gap:4px;border-bottom:1px solid var(--border);transform:none}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:14px 16px;font-size:15px;border-radius:8px}
+      .nav-cta{width:100%;text-align:center;padding:14px}
+      .nav-toggle{display:flex}
+      .job-card{grid-template-columns:1fr;gap:16px}
+      .footer-top{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:600px){.footer-top{grid-template-columns:1fr}}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><img src="/images/logo.png" alt="Chem USA"></a>
+  <div class="nav-links" id="nav-links">
+    <a href="/">Home</a>
+    <a href="/culture/">Culture</a>
+    <a href="/careers/" class="active">Careers</a>
+    <a href="/benefits/">Benefits</a>
+    <a href="/apply/" class="nav-cta">Apply Now</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-inner">
+    <div class="page-label">Open Positions</div>
+    <h1 class="page-h1">Find Your <span>Role</span><br>at Chem USA</h1>
+    <p class="page-sub">We're growing and looking for driven, ambitious professionals ready to make their mark in the industrial supply industry.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="filters reveal">
+      <button class="filter-btn active">All Departments</button>
+      <button class="filter-btn">Operations</button>
+      <button class="filter-btn">Sales</button>
+      <button class="filter-btn">Supply Chain</button>
+      <button class="filter-btn">Administration</button>
+    </div>
+
+    <!-- OPERATIONS -->
+    <div class="dept-section reveal" id="operations">
+      <div class="dept-label">
+        <span class="dept-name">Operations</span>
+        <div class="dept-rule"></div>
+      </div>
+      <div class="job-card">
+        <div>
+          <div class="job-title">Warehouse &amp; Logistics Coordinator</div>
+          <div class="job-desc">Manage day-to-day warehouse operations including receiving, storage, and order fulfillment. Coordinate with UPS and FedEx for outbound shipments and track delivery performance across our national distribution footprint.</div>
+          <div class="job-tags">
+            <span class="job-tag">Full-Time</span>
+            <span class="job-tag">South Florida</span>
+            <span class="job-tag">On-Site</span>
+          </div>
+        </div>
+        <a href="/apply/" class="job-apply">Apply →</a>
+      </div>
+      <div class="job-card">
+        <div>
+          <div class="job-title">Operations &amp; Fulfillment Manager</div>
+          <div class="job-desc">Lead our fulfillment operations end-to-end, from inventory management to carrier optimization. This role owns the output of our warehouse and reports directly to senior leadership.</div>
+          <div class="job-tags">
+            <span class="job-tag">Full-Time</span>
+            <span class="job-tag">South Florida</span>
+            <span class="job-tag">On-Site</span>
+            <span class="job-tag">Leadership</span>
+          </div>
+        </div>
+        <a href="/apply/" class="job-apply">Apply →</a>
+      </div>
+    </div>
+
+    <!-- SALES -->
+    <div class="dept-section reveal" id="sales">
+      <div class="dept-label">
+        <span class="dept-name">Sales</span>
+        <div class="dept-rule"></div>
+      </div>
+      <div class="job-card">
+        <div>
+          <div class="job-title">B2B Sales Representative</div>
+          <div class="job-desc">Build and grow a portfolio of industrial clients — including facility managers, maintenance directors, and procurement teams — across manufacturing, warehousing, and commercial sectors nationwide.</div>
+          <div class="job-tags">
+            <span class="job-tag">Full-Time</span>
+            <span class="job-tag">Remote / Hybrid</span>
+            <span class="job-tag">Base + Commission</span>
+          </div>
+        </div>
+        <a href="/apply/" class="job-apply">Apply →</a>
+      </div>
+      <div class="job-card">
+        <div>
+          <div class="job-title">Account Manager — Industrial Accounts</div>
+          <div class="job-desc">Manage and expand relationships with existing industrial clients. Focus on retention, upselling across product lines, and becoming the go-to resource for facility operations teams.</div>
+          <div class="job-tags">
+            <span class="job-tag">Full-Time</span>
+            <span class="job-tag">Remote / Hybrid</span>
+            <span class="job-tag">Commission Eligible</span>
+          </div>
+        </div>
+        <a href="/apply/" class="job-apply">Apply →</a>
+      </div>
+    </div>
+
+    <!-- SUPPLY CHAIN -->
+    <div class="dept-section reveal" id="supply-chain">
+      <div class="dept-label">
+        <span class="dept-name">Supply Chain</span>
+        <div class="dept-rule"></div>
+      </div>
+      <div class="job-card">
+        <div>
+          <div class="job-title">Supply Chain &amp; Procurement Specialist</div>
+          <div class="job-desc">Own supplier relationships, purchasing, and inventory forecasting for our three product lines. Identify cost-saving opportunities and ensure uninterrupted supply across all customer orders.</div>
+          <div class="job-tags">
+            <span class="job-tag">Full-Time</span>
+            <span class="job-tag">South Florida</span>
+            <span class="job-tag">Hybrid</span>
+          </div>
+        </div>
+        <a href="/apply/" class="job-apply">Apply →</a>
+      </div>
+    </div>
+
+    <!-- ADMINISTRATION -->
+    <div class="dept-section reveal" id="administration">
+      <div class="dept-label">
+        <span class="dept-name">Administration</span>
+        <div class="dept-rule"></div>
+      </div>
+      <div class="job-card">
+        <div>
+          <div class="job-title">Executive Assistant to Leadership</div>
+          <div class="job-desc">Support the executive team with scheduling, communications, vendor coordination, and special projects. This is a high-visibility role for someone who is sharp, organized, and thrives in a fast-paced environment.</div>
+          <div class="job-tags">
+            <span class="job-tag">Full-Time</span>
+            <span class="job-tag">South Florida</span>
+            <span class="job-tag">On-Site</span>
+          </div>
+        </div>
+        <a href="/apply/" class="job-apply">Apply →</a>
+      </div>
+      <div class="job-card">
+        <div>
+          <div class="job-title">Customer Service &amp; Order Management</div>
+          <div class="job-desc">Be the first point of contact for client inquiries, order issues, and account support. Build long-term customer relationships while ensuring every order experience reflects our commitment to excellence.</div>
+          <div class="job-tags">
+            <span class="job-tag">Full-Time</span>
+            <span class="job-tag">South Florida</span>
+            <span class="job-tag">Hybrid</span>
+          </div>
+        </div>
+        <a href="/apply/" class="job-apply">Apply →</a>
+      </div>
+    </div>
+
+    <!-- OPEN APPLICATION -->
+    <div class="open-cta reveal">
+      <h3>Don't See the Right Fit?</h3>
+      <p>We're always open to hearing from talented, driven individuals. Send us your resume and tell us why you belong at Chem USA.</p>
+      <a href="/apply/" class="btn-grad">Submit an Open Application →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="Chem USA">
+        <p>A woman-owned chemical maintenance supply company delivering premium formulas and careers that matter.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="/culture/">Our Culture</a>
+        <a href="/benefits/">Benefits</a>
+        <a href="https://chemusasouthflorida.com" target="_blank">Products Site</a>
+      </div>
+      <div class="footer-col">
+        <h4>Careers</h4>
+        <a href="/careers/">All Openings</a>
+        <a href="/careers/#operations">Operations</a>
+        <a href="/careers/#sales">Sales</a>
+        <a href="/careers/#supply-chain">Supply Chain</a>
+      </div>
+      <div class="footer-col">
+        <h4>Apply</h4>
+        <a href="/apply/">Submit Application</a>
+        <a href="mailto:careers@chemusasouthflorida.com">Email Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Chem USA. All Rights Reserved.</span>
+      <span>Woman-Owned &amp; Operated · South Florida</span>
+    </div>
+  </div>
+</footer>
+<script>
+  const reveals=document.querySelectorAll('.reveal');
+  const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}}),{threshold:.12});
+  reveals.forEach(r=>io.observe(r));
+  const toggle=document.getElementById('nav-toggle'),links=document.getElementById('nav-links');
+  toggle.addEventListener('click',()=>{links.classList.toggle('open');document.body.style.overflow=links.classList.contains('open')?'hidden':''});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');document.body.style.overflow=''}));
+  // Filter buttons (visual only)
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')});
+  });
+</script>
+</body>
+</html>
