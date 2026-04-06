@@ -267,11 +267,14 @@
   <div class="section-inner">
     <div class="culture-grid">
       <div class="culture-img-block reveal">
-        <div class="culture-img-wrap">
-          <div class="culture-img-placeholder">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span>Team Photo</span>
-          </div>
+        <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3">
+          <img src="/images/culture-home.jpg" alt="Chem USA Team" style="width:100%;height:100%;object-fit:cover;display:block">
+          <!-- Blurred edge overlay to blend into background -->
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 40%, var(--navy2) 100%);pointer-events:none"></div>
+          <div style="position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(to bottom, var(--navy2), transparent);pointer-events:none"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top, var(--navy2), transparent);pointer-events:none"></div>
+          <div style="position:absolute;top:0;left:0;bottom:0;width:80px;background:linear-gradient(to right, var(--navy2), transparent);pointer-events:none"></div>
+          <div style="position:absolute;top:0;right:0;bottom:0;width:80px;background:linear-gradient(to left, var(--navy2), transparent);pointer-events:none"></div>
         </div>
         <div class="culture-badge">Women-Led<br>Since Day One</div>
       </div>
