@@ -219,37 +219,47 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
         <img src="/images/logo.png" alt="Chem USA">
         <p>A woman-owned chemical maintenance supply company delivering premium formulas and careers that matter.</p>
+        <div style="margin-top:16px">
+          <a href="https://www.instagram.com/chemusallc/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--grey);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--grey)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @chemusallc
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="/culture/">Our Culture</a>
         <a href="/benefits/">Benefits</a>
         <a href="https://chemusasouthflorida.com" target="_blank">Products Site</a>
+        <a href="https://www.instagram.com/chemusallc/" target="_blank">Instagram</a>
       </div>
       <div class="footer-col">
         <h4>Careers</h4>
         <a href="/careers/">All Openings</a>
-        <a href="/careers/#operations">Operations</a>
-        <a href="/careers/#sales">Sales</a>
+        <a href="/apply/">Apply Now</a>
       </div>
       <div class="footer-col">
-        <h4>Apply</h4>
-        <a href="/apply/">Submit Application</a>
-        <a href="mailto:careers@chemusasouthflorida.com">Email Us</a>
+        <h4>Contact</h4>
+        <a href="tel:9542944831">(954) 294-4831</a>
+        <a href="mailto:careers@chemusasouthflorida.com">careers@chemusasouthflorida.com</a>
+        <span style="font-size:14px;color:var(--grey);font-weight:300;line-height:1.6;display:block;margin-bottom:10px">4443 Lyons Rd Suite 209<br>Coconut Creek, FL 33073</span>
+        <span style="font-size:13px;color:var(--grey);font-weight:300">Mon–Fri · 8:30am–4:00pm</span>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Chem USA. All Rights Reserved.</span>
-      <span>Woman-Owned &amp; Operated · South Florida</span>
+      <span>Woman-Owned &amp; Operated · <a href="https://www.instagram.com/chemusallc/" target="_blank" style="color:var(--grey);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--grey)'">@chemusallc</a> · Coconut Creek, FL</span>
     </div>
   </div>
 </footer>
+
 <script>
   const reveals=document.querySelectorAll('.reveal');
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}}),{threshold:.12});
