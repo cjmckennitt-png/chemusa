@@ -25,11 +25,11 @@
     /* DROPDOWN */
     .nav-dropdown{position:relative}
     .nav-dropdown-toggle{display:flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:14px;font-weight:500;color:var(--light);letter-spacing:.02em;background:none;border:none;cursor:pointer;font-family:var(--font);transition:color .2s,background .2s;white-space:nowrap}
-    .nav-dropdown-toggle:hover,.nav-dropdown.active .nav-dropdown-toggle{color:var(--white);background:var(--surface2)}
+    .nav-dropdown-toggle:hover,.nav-dropdown.active .nav-dropdown-toggle,.nav-dropdown:hover .nav-dropdown-toggle{color:var(--white);background:var(--surface2)}
     .chevron{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s;flex-shrink:0}
-    .nav-dropdown.open .chevron{transform:rotate(180deg)}
+    .nav-dropdown:hover .chevron,.nav-dropdown.open .chevron{transform:rotate(180deg)}
     .dropdown-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:rgba(11,25,50,.98);border:1px solid var(--border);border-radius:12px;padding:8px;min-width:220px;backdrop-filter:blur(20px);z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.4)}
-    .nav-dropdown.open .dropdown-menu{display:block}
+    .nav-dropdown:hover .dropdown-menu,.nav-dropdown.open .dropdown-menu{display:block}
     .dropdown-menu a{display:block;padding:11px 16px;border-radius:8px;font-size:14px;color:var(--light);font-weight:500;transition:background .2s,color .2s;letter-spacing:.02em}
     .dropdown-menu a:hover,.dropdown-menu a.active{background:var(--surface2);color:var(--white)}
 
@@ -109,6 +109,8 @@
       .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
       .nav-dropdown-toggle{width:100%;padding:14px 16px;border-radius:8px;font-size:15px;justify-content:space-between}
       .dropdown-menu{position:static;transform:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;margin:4px 0 4px 8px;backdrop-filter:none;box-shadow:none;padding:4px}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
       .page-header{padding:140px 20px 60px}
       .section{padding:60px 20px}
       .intro-grid{grid-template-columns:1fr;gap:40px}
@@ -138,7 +140,7 @@
     <div class="nav-dropdown active" id="who-dropdown">
       <button class="nav-dropdown-toggle">Who We Are <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
       <div class="dropdown-menu">
-        <a href="/culture/#story">Our Story</a>
+        <a href="/our-story/">Our Story</a>
         <a href="/culture/">Culture</a>
         <a href="/companies/" class="active">Our Group of Companies</a>
       </div>
@@ -238,7 +240,7 @@
       </div>
       <div class="footer-col">
         <h4>Who We Are</h4>
-        <a href="/culture/#story">Our Story</a>
+        <a href="/our-story/">Our Story</a>
         <a href="/culture/">Culture</a>
         <a href="/companies/">Our Group of Companies</a>
       </div>

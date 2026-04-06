@@ -24,11 +24,11 @@
     /* DROPDOWN */
     .nav-dropdown{position:relative}
     .nav-dropdown-toggle{display:flex;align-items:center;gap:5px;padding:8px 16px;border-radius:6px;font-size:14px;font-weight:500;color:var(--light);letter-spacing:.02em;background:none;border:none;cursor:pointer;font-family:var(--font);transition:color .2s,background .2s;white-space:nowrap}
-    .nav-dropdown-toggle:hover,.nav-dropdown.active .nav-dropdown-toggle{color:var(--white);background:var(--surface2)}
+    .nav-dropdown-toggle:hover,.nav-dropdown.active .nav-dropdown-toggle,.nav-dropdown:hover .nav-dropdown-toggle{color:var(--white);background:var(--surface2)}
     .chevron{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s;flex-shrink:0}
-    .nav-dropdown.open .chevron{transform:rotate(180deg)}
+    .nav-dropdown:hover .chevron,.nav-dropdown.open .chevron{transform:rotate(180deg)}
     .dropdown-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:rgba(11,25,50,.98);border:1px solid var(--border);border-radius:12px;padding:8px;min-width:220px;backdrop-filter:blur(20px);z-index:200;box-shadow:0 20px 40px rgba(0,0,0,.4)}
-    .nav-dropdown.open .dropdown-menu{display:block}
+    .nav-dropdown:hover .dropdown-menu,.nav-dropdown.open .dropdown-menu{display:block}
     .dropdown-menu a{display:block;padding:11px 16px;border-radius:8px;font-size:14px;color:var(--light);font-weight:500;transition:background .2s,color .2s;letter-spacing:.02em}
     .dropdown-menu a:hover,.dropdown-menu a.active{background:var(--surface2);color:var(--white)}
 
@@ -107,6 +107,8 @@
       .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
       .nav-dropdown-toggle{width:100%;padding:14px 16px;border-radius:8px;font-size:15px;justify-content:space-between}
       .dropdown-menu{position:static;transform:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;margin:4px 0 4px 8px;backdrop-filter:none;box-shadow:none;padding:4px}
+      .nav-dropdown:hover .dropdown-menu{display:none}
+      .nav-dropdown.open .dropdown-menu{display:block}
       .page-header{padding:140px 20px 60px}
       .section{padding:60px 20px}
       .values-grid{grid-template-columns:1fr}
@@ -130,7 +132,7 @@
     <div class="nav-dropdown active" id="who-dropdown">
       <button class="nav-dropdown-toggle">Who We Are <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
       <div class="dropdown-menu">
-        <a href="/culture/#story">Our Story</a>
+        <a href="/our-story/">Our Story</a>
         <a href="/culture/" class="active">Culture</a>
         <a href="/companies/">Our Group of Companies</a>
       </div>
@@ -147,8 +149,8 @@
   <div class="page-header-bg"></div>
   <div class="page-header-inner">
     <div class="page-label">Our Culture</div>
-    <h1 class="page-h1">Built on <span>Bold</span><br>Women. Real Values.</h1>
-    <p class="page-sub">From day one, Chem USA has been more than a company — it's a community built on ambition, accountability, and the belief that women belong at the forefront of every industry.</p>
+    <h1 class="page-h1">Built on <span>Bold</span><br>Ideas. Real Values.</h1>
+    <p class="page-sub">Chem USA is more than a company — it's a community built on ambition, accountability, and the belief that great teams are defined by the quality of the people in them.</p>
   </div>
 </div>
 
@@ -188,7 +190,7 @@
       <div class="value-card">
         <div class="value-num">06</div>
         <h3>Community Impact</h3>
-        <p>As a woman-owned enterprise, we're committed to creating opportunities for other women in supply chain, logistics, and industrial sectors.</p>
+        <p>We're committed to building opportunity — for our team, our clients, and the communities we operate in. That's been part of our DNA since day one.</p>
       </div>
     </div>
   </div>
@@ -248,8 +250,8 @@
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div>
-          <h3>Women Lead the Way</h3>
-          <p>Our leadership is woman-driven from the very top. You won't just be welcome here — you'll be positioned to lead, influence, and advance at every stage of your career.</p>
+          <h3>Leadership That's Accessible</h3>
+          <p>Our leadership team is hands-on and approachable. As a woman-founded company, we've always believed in leading from the front and making sure everyone on the team has a clear path to grow.</p>
         </div>
       </div>
       <div class="pillar-card reveal">
