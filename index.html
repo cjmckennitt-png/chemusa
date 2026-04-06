@@ -154,6 +154,8 @@
       .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
       .nav-toggle.open span:nth-child(2){opacity:0}
       .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+      .nav-dropdown-toggle{width:100%;padding:14px 16px;border-radius:8px;font-size:15px;justify-content:space-between}
+      .dropdown-menu{position:static;transform:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;margin:4px 0 4px 8px;backdrop-filter:none;box-shadow:none;padding:4px}
       .hero{padding:100px 20px 60px}
       .section{padding:60px 20px}
       .roles-preview{padding:60px 20px}
@@ -193,7 +195,14 @@
   </a>
   <div class="nav-links" id="nav-links">
     <a href="/" class="active">Home</a>
-    <a href="/culture/">Culture</a>
+    <div class="nav-dropdown" id="who-dropdown">
+      <button class="nav-dropdown-toggle">Who We Are <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="dropdown-menu">
+        <a href="/culture/#story">Our Story</a>
+        <a href="/culture/">Culture</a>
+        <a href="/companies/">Our Group of Companies</a>
+      </div>
+    </div>
     <a href="/careers/">Careers</a>
     <a href="/benefits/">Benefits</a>
     <a href="/testimonials/">Reviews</a>
@@ -399,6 +408,15 @@
     toggle.classList.remove('open');
     document.body.style.overflow = '';
   }));
+
+  // Dropdown
+  document.querySelectorAll('.nav-dropdown').forEach(dd=>{
+    dd.querySelector('.nav-dropdown-toggle').addEventListener('click',e=>{
+      e.stopPropagation();
+      dd.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click',()=>{document.querySelectorAll('.nav-dropdown').forEach(dd=>dd.classList.remove('open'))});
 </script>
 </body>
 </html>
