@@ -13,7 +13,7 @@
     body{background:var(--navy);color:var(--white);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(11,25,50,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-    .nav-logo img{height:176px;width:auto}
+    .nav-logo img{height:52px;width:auto}
     .nav-links{display:flex;align-items:center;gap:4px;position:absolute;left:50%;transform:translateX(-50%)}
     .nav-links a{padding:8px 18px;border-radius:6px;font-size:14px;font-weight:500;color:var(--light);letter-spacing:.02em;transition:color .2s,background .2s}
     .nav-links a:hover,.nav-links a.active{color:var(--white);background:var(--surface2)}
@@ -111,131 +111,6 @@
 
 <section class="section">
   <div class="section-inner">
-    <div class="filters reveal">
-      <button class="filter-btn active">All Departments</button>
-      <button class="filter-btn">Operations</button>
-      <button class="filter-btn">Sales</button>
-      <button class="filter-btn">Supply Chain</button>
-      <button class="filter-btn">Administration</button>
-    </div>
-
-    <!-- OPERATIONS -->
-    <div class="dept-section reveal" id="operations">
-      <div class="dept-label">
-        <span class="dept-name">Operations</span>
-        <div class="dept-rule"></div>
-      </div>
-      <div class="job-card">
-        <div>
-          <div class="job-title">Warehouse &amp; Logistics Coordinator</div>
-          <div class="job-desc">Manage day-to-day warehouse operations including receiving, storage, and order fulfillment. Coordinate with UPS and FedEx for outbound shipments and track delivery performance across our national distribution footprint.</div>
-          <div class="job-tags">
-            <span class="job-tag">Full-Time</span>
-            <span class="job-tag">South Florida</span>
-            <span class="job-tag">On-Site</span>
-          </div>
-        </div>
-        <a href="/apply/" class="job-apply">Apply →</a>
-      </div>
-      <div class="job-card">
-        <div>
-          <div class="job-title">Operations &amp; Fulfillment Manager</div>
-          <div class="job-desc">Lead our fulfillment operations end-to-end, from inventory management to carrier optimization. This role owns the output of our warehouse and reports directly to senior leadership.</div>
-          <div class="job-tags">
-            <span class="job-tag">Full-Time</span>
-            <span class="job-tag">South Florida</span>
-            <span class="job-tag">On-Site</span>
-            <span class="job-tag">Leadership</span>
-          </div>
-        </div>
-        <a href="/apply/" class="job-apply">Apply →</a>
-      </div>
-    </div>
-
-    <!-- SALES -->
-    <div class="dept-section reveal" id="sales">
-      <div class="dept-label">
-        <span class="dept-name">Sales</span>
-        <div class="dept-rule"></div>
-      </div>
-      <div class="job-card">
-        <div>
-          <div class="job-title">B2B Sales Representative</div>
-          <div class="job-desc">Build and grow a portfolio of industrial clients — including facility managers, maintenance directors, and procurement teams — across manufacturing, warehousing, and commercial sectors nationwide.</div>
-          <div class="job-tags">
-            <span class="job-tag">Full-Time</span>
-            <span class="job-tag">Remote / Hybrid</span>
-            <span class="job-tag">Base + Commission</span>
-          </div>
-        </div>
-        <a href="/apply/" class="job-apply">Apply →</a>
-      </div>
-      <div class="job-card">
-        <div>
-          <div class="job-title">Account Manager — Industrial Accounts</div>
-          <div class="job-desc">Manage and expand relationships with existing industrial clients. Focus on retention, upselling across product lines, and becoming the go-to resource for facility operations teams.</div>
-          <div class="job-tags">
-            <span class="job-tag">Full-Time</span>
-            <span class="job-tag">Remote / Hybrid</span>
-            <span class="job-tag">Commission Eligible</span>
-          </div>
-        </div>
-        <a href="/apply/" class="job-apply">Apply →</a>
-      </div>
-    </div>
-
-    <!-- SUPPLY CHAIN -->
-    <div class="dept-section reveal" id="supply-chain">
-      <div class="dept-label">
-        <span class="dept-name">Supply Chain</span>
-        <div class="dept-rule"></div>
-      </div>
-      <div class="job-card">
-        <div>
-          <div class="job-title">Supply Chain &amp; Procurement Specialist</div>
-          <div class="job-desc">Own supplier relationships, purchasing, and inventory forecasting for our three product lines. Identify cost-saving opportunities and ensure uninterrupted supply across all customer orders.</div>
-          <div class="job-tags">
-            <span class="job-tag">Full-Time</span>
-            <span class="job-tag">South Florida</span>
-            <span class="job-tag">Hybrid</span>
-          </div>
-        </div>
-        <a href="/apply/" class="job-apply">Apply →</a>
-      </div>
-    </div>
-
-    <!-- ADMINISTRATION -->
-    <div class="dept-section reveal" id="administration">
-      <div class="dept-label">
-        <span class="dept-name">Administration</span>
-        <div class="dept-rule"></div>
-      </div>
-      <div class="job-card">
-        <div>
-          <div class="job-title">Executive Assistant to Leadership</div>
-          <div class="job-desc">Support the executive team with scheduling, communications, vendor coordination, and special projects. This is a high-visibility role for someone who is sharp, organized, and thrives in a fast-paced environment.</div>
-          <div class="job-tags">
-            <span class="job-tag">Full-Time</span>
-            <span class="job-tag">South Florida</span>
-            <span class="job-tag">On-Site</span>
-          </div>
-        </div>
-        <a href="/apply/" class="job-apply">Apply →</a>
-      </div>
-      <div class="job-card">
-        <div>
-          <div class="job-title">Customer Service &amp; Order Management</div>
-          <div class="job-desc">Be the first point of contact for client inquiries, order issues, and account support. Build long-term customer relationships while ensuring every order experience reflects our commitment to excellence.</div>
-          <div class="job-tags">
-            <span class="job-tag">Full-Time</span>
-            <span class="job-tag">South Florida</span>
-            <span class="job-tag">Hybrid</span>
-          </div>
-        </div>
-        <a href="/apply/" class="job-apply">Apply →</a>
-      </div>
-    </div>
-
     <!-- OPEN APPLICATION -->
     <div class="open-cta reveal">
       <h3>Don't See the Right Fit?</h3>
