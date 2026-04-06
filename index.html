@@ -145,21 +145,35 @@
 
     /* ── MOBILE ── */
     @media(max-width:900px){
-      .nav-links{display:none;position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(11,25,50,.98);padding:16px;gap:4px;border-bottom:1px solid var(--border);transform:none;left:0}
+      nav{padding:0 20px}
+      .nav-links{display:none;position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(11,25,50,.98);padding:16px;gap:4px;border-bottom:1px solid var(--border)}
       .nav-links.open{display:flex}
       .nav-links a{padding:14px 16px;font-size:15px;border-radius:8px}
       .nav-cta{width:100%;text-align:center;padding:14px}
       .nav-toggle{display:flex}
+      .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+      .nav-toggle.open span:nth-child(2){opacity:0}
+      .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+      .hero{padding:100px 20px 60px}
+      .section{padding:60px 20px}
+      .roles-preview{padding:60px 20px}
+      .culture-teaser{padding:60px 20px}
+      .cta-bottom{padding:80px 20px}
+      .quote-band{padding:60px 20px}
       .pillars{grid-template-columns:1fr 1fr}
       .roles-grid{grid-template-columns:1fr}
-      .culture-grid{grid-template-columns:1fr;gap:48px}
+      .culture-grid{grid-template-columns:1fr;gap:40px}
+      .culture-badge{position:relative;bottom:auto;right:auto;display:inline-block;margin-top:16px}
       .footer-top{grid-template-columns:1fr 1fr}
-      .hero-stats{gap:32px}
+      .hero-stats{gap:24px;margin-top:48px;padding-top:32px}
     }
     @media(max-width:600px){
-      nav{padding:0 20px}
       .pillars{grid-template-columns:1fr}
       .footer-top{grid-template-columns:1fr}
+      .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .hero-actions .btn-grad,.hero-actions .btn-ghost{width:100%;justify-content:center;text-align:center}
+      .footer-bottom{flex-direction:column;text-align:center}
     }
 
     /* ── REVEAL ── */
@@ -194,7 +208,7 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="hero-badge reveal">Woman-Owned &amp; Operated Since 2014</div>
+    <div class="hero-badge reveal">South Florida's Industrial Supply Leader</div>
     <h1 class="reveal">Build Something<br><span>That Matters.</span></h1>
     <p class="hero-sub reveal">Join a team where your ambition drives growth, your voice shapes culture, and your work powers industries across the country.</p>
     <div class="hero-actions reveal">
@@ -215,8 +229,8 @@
         <div class="hero-stat-label">States Served</div>
       </div>
       <div>
-        <div class="hero-stat-num">100%</div>
-        <div class="hero-stat-label">Woman-Led</div>
+        <div class="hero-stat-num">A+</div>
+        <div class="hero-stat-label">BBB Rating</div>
       </div>
     </div>
   </div>
@@ -243,7 +257,7 @@
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3>Inclusive Culture</h3>
-        <p>We're woman-owned from the top down. Diversity isn't a talking point here — it's our foundation and our advantage.</p>
+        <p>Diversity isn't a talking point here — it's our foundation. We hire for drive, grit, and potential above all else.</p>
       </div>
       <div class="pillar reveal">
         <div class="pillar-icon">
@@ -279,17 +293,17 @@
           <div style="position:absolute;top:0;left:0;bottom:0;width:80px;background:linear-gradient(to right, var(--navy2), transparent);pointer-events:none"></div>
           <div style="position:absolute;top:0;right:0;bottom:0;width:80px;background:linear-gradient(to left, var(--navy2), transparent);pointer-events:none"></div>
         </div>
-        <div class="culture-badge">Women-Led<br>Since Day One</div>
+        <div class="culture-badge">Founded<br>in 2014</div>
       </div>
       <div class="culture-text reveal">
         <div class="section-label">Our Culture</div>
         <div class="red-rule"></div>
-        <h2 class="section-h2">Built by Women.<br>Powered by Purpose.</h2>
-        <p class="section-sub">From our founding in 2014, Chem USA has been driven by women who refused to accept the status quo in industrial supply.</p>
+        <h2 class="section-h2">A Team Built to<br>Go the Distance.</h2>
+        <p class="section-sub">Chem USA was built on the idea that great people, given the right environment, can accomplish anything.</p>
         <div class="culture-bullets">
           <div class="culture-bullet">
             <div class="bullet-dot"></div>
-            <p>A leadership team that champions women at every level of the organization</p>
+            <p>A tight-knit team where your contributions are visible and your impact is real</p>
           </div>
           <div class="culture-bullet">
             <div class="bullet-dot"></div>
@@ -297,7 +311,7 @@
           </div>
           <div class="culture-bullet">
             <div class="bullet-dot"></div>
-            <p>Direct mentorship from a leadership team with 30+ years of combined industry experience</p>
+            <p>Direct access to a leadership team with 30+ years of combined industry experience</p>
           </div>
         </div>
         <a href="/culture/" class="btn-grad" style="display:inline-flex;margin-top:36px">Explore Our Culture →</a>
@@ -375,10 +389,12 @@
   const links = document.getElementById('nav-links');
   toggle.addEventListener('click', () => {
     links.classList.toggle('open');
+    toggle.classList.toggle('open');
     document.body.style.overflow = links.classList.contains('open') ? 'hidden' : '';
   });
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     links.classList.remove('open');
+    toggle.classList.remove('open');
     document.body.style.overflow = '';
   }));
 </script>

@@ -20,7 +20,7 @@
     .nav-cta{background:var(--grad);color:#fff;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:.03em;transition:opacity .2s}
     .nav-cta:hover{opacity:.85;background:var(--grad)}
     .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
-    .nav-toggle span{width:22px;height:2px;background:var(--white);display:block}
+    .nav-toggle span{width:22px;height:2px;background:var(--white);display:block;transition:transform .3s,opacity .3s}
 
     .page-header{padding:160px 24px 80px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
     .page-header-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(51,117,183,.2) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(138,30,138,.15) 0%,transparent 60%),var(--navy2);z-index:0}
@@ -87,17 +87,22 @@
 
     @media(max-width:900px){
       nav{padding:0 20px}
-      .nav-links{display:none;position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(11,25,50,.98);padding:16px;gap:4px;border-bottom:1px solid var(--border);transform:none}
+      .nav-links{display:none;position:fixed;top:80px;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(11,25,50,.98);padding:16px;gap:4px;border-bottom:1px solid var(--border);transform:none}
       .nav-links.open{display:flex}
       .nav-links a{padding:14px 16px;font-size:15px;border-radius:8px}
       .nav-cta{width:100%;text-align:center;padding:14px}
       .nav-toggle{display:flex}
+      .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+      .nav-toggle.open span:nth-child(2){opacity:0}
+      .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+      .page-header{padding:140px 20px 60px}
+      .section{padding:60px 20px}
       .values-grid{grid-template-columns:1fr}
       .story-grid{grid-template-columns:1fr;gap:48px}
       .pillars-grid{grid-template-columns:1fr}
       .footer-top{grid-template-columns:1fr 1fr}
     }
-    @media(max-width:600px){.footer-top{grid-template-columns:1fr}}
+    @media(max-width:600px){.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
     .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
     .reveal.visible{opacity:1;transform:none}
   </style>
@@ -296,8 +301,8 @@
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}}),{threshold:.12});
   reveals.forEach(r=>io.observe(r));
   const toggle=document.getElementById('nav-toggle'),links=document.getElementById('nav-links');
-  toggle.addEventListener('click',()=>{links.classList.toggle('open');document.body.style.overflow=links.classList.contains('open')?'hidden':''});
-  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');document.body.style.overflow=''}));
+  toggle.addEventListener('click',()=>{links.classList.toggle('open');toggle.classList.toggle('open');document.body.style.overflow=links.classList.contains('open')?'hidden':''});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.classList.remove('open');document.body.style.overflow=''}));
 </script>
 </body>
 </html>
