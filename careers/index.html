@@ -83,6 +83,7 @@
       .footer-top{grid-template-columns:1fr 1fr}
     }
     @media(max-width:600px){.footer-top{grid-template-columns:1fr}}
+    @media(max-width:800px){.job-body-grid{grid-template-columns:1fr !important}}
     .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
     .reveal.visible{opacity:1;transform:none}
   </style>
@@ -116,27 +117,77 @@
     <div class="reveal" style="margin-bottom:64px">
       <div class="section-label">Current Opportunities</div>
       <h2 class="section-h2">Open Positions</h2>
-      <div class="job-card" style="border-radius:12px">
-        <div>
-          <div class="job-title">Phone Sales Representative</div>
-          <div class="job-desc">Start your career at Chem USA in phone sales — the foundation of our business. You'll build client relationships, pitch our product lines, and grow with a woman-owned company that invests in its people from day one.</div>
-          <div class="job-tags">
-            <span class="job-tag">Full-Time</span>
-            <span class="job-tag">South Florida</span>
-            <span class="job-tag">Base + Commission</span>
-            <span class="job-tag">Entry Level</span>
+
+      <!-- JOB CARD -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2px">
+
+        <!-- Job Header -->
+        <div style="padding:36px 40px 28px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap">
+          <div>
+            <div class="job-title" style="font-size:22px;margin-bottom:10px">Phone Sales Representative</div>
+            <div class="job-tags">
+              <span class="job-tag">Full-Time / Part-Time</span>
+              <span class="job-tag">Coconut Creek, FL</span>
+              <span class="job-tag">In Person</span>
+              <span class="job-tag">$17/hr + Commission</span>
+              <span class="job-tag">No Experience Needed</span>
+              <span class="job-tag">17+ May Apply</span>
+            </div>
           </div>
+          <a href="tel:9542944831" class="job-apply" style="white-space:nowrap">Call to Apply →</a>
         </div>
-        <a href="/apply/" class="job-apply">Apply →</a>
+
+        <!-- Job Body -->
+        <div style="padding:36px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+
+          <!-- Left: About the Role -->
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px">About the Role</div>
+            <p style="font-size:14px;color:var(--grey);line-height:1.8;font-weight:300;margin-bottom:20px">We are an established, essential-business corporation with over 30 years of combined employee experience, seeking well-spoken individuals for phone work. Full training provided — no experience necessary.</p>
+            <p style="font-size:14px;color:var(--grey);line-height:1.8;font-weight:300;margin-bottom:20px">We welcome graduated students, current students seeking daytime work, parents working around school schedules, those seeking a new venture, those getting back into the workforce, and anyone motivated and ready to work.</p>
+            <p style="font-size:14px;color:var(--grey);line-height:1.8;font-weight:300">We are located in The Promenade (Coconut Creek) in a modern, cozy office space with a family-like, fun, relaxed but hardworking atmosphere. Daily fun incentives — cash, paid time off, games, prizes, music, and more. Taco Tuesdays, Salad Bar Fridays, Donut &amp; Bagel mornings, Wing Wednesdays, gourmet coffee and snacks every day.</p>
+          </div>
+
+          <!-- Right: Details -->
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px">Position Details</div>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px">
+              <div style="display:flex;gap:12px;font-size:14px;color:var(--light)"><span style="color:var(--grey);min-width:120px;font-weight:300">Schedule</span>Mon–Fri, 8:30am–4:00pm · No nights, weekends or holidays</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:var(--light)"><span style="color:var(--grey);min-width:120px;font-weight:300">Hours</span>35-hour work week</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:var(--light)"><span style="color:var(--grey);min-width:120px;font-weight:300">Pay</span>Guaranteed $17/hr + commissions &amp; bonuses</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:var(--light)"><span style="color:var(--grey);min-width:120px;font-weight:300">Average Weekly</span>$625–$1,100/week</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:var(--light)"><span style="color:var(--grey);min-width:120px;font-weight:300">Bonus</span>Monthly bonus available</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:var(--light)"><span style="color:var(--grey);min-width:120px;font-weight:300">PTO</span>Available to earn immediately</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:var(--light)"><span style="color:var(--grey);min-width:120px;font-weight:300">Dress</span>Business Casual</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:var(--light)"><span style="color:var(--grey);min-width:120px;font-weight:300">Training</span>Full paid training period guaranteed</div>
+            </div>
+
+            <div style="background:var(--grad-soft);border:1px solid rgba(51,117,183,.2);border-radius:12px;padding:24px">
+              <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:8px">How to Apply</div>
+              <p style="font-size:13px;color:var(--grey);line-height:1.7;font-weight:300;margin-bottom:16px">Call and leave a voicemail in your best, clear, highly energetic, smiling, peppy voice with your name and callback number. Only the most impressive, positive-sounding voicemails receive callbacks. Out of 30 voicemails, only a few are called back — so bring your energy!</p>
+              <p style="font-size:13px;color:var(--grey);line-height:1.7;font-weight:300;margin-bottom:16px">Please tell us a little about yourself — your job history or just who you are. No experience necessary. Positions are limited and filled first come, first serve.</p>
+              <p style="font-size:12px;color:var(--grey);font-style:italic;margin-bottom:16px">Note: If voicemail is full, please try again a little later.</p>
+              <a href="tel:9542944831" style="display:inline-flex;align-items:center;gap:8px;background:var(--grad);color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;letter-spacing:.03em">(954) 294-4831 — Leave a Voicemail</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Instagram -->
+        <div style="padding:20px 40px;border-top:1px solid var(--border);display:flex;align-items:center;gap:8px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--grey)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a href="https://www.instagram.com/chemusallc/" target="_blank" style="font-size:13px;color:var(--grey);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--grey)'">@chemusallc</a>
+        </div>
+
       </div>
     </div>
 
-    <!-- CONTACT US -->
+    <!-- CONTACT CTA -->
     <div class="open-cta reveal">
       <h3>Ready to Apply?</h3>
-      <p>Submit an open application or give us a call — we'd love to hear from you.</p>
+      <p>Call and leave your best voicemail — serious inquiries only. We look forward to meeting you!</p>
       <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:28px">
-        <a href="tel:9542944831" style="font-size:24px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">(954) 294-4831</a>
+        <a href="tel:9542944831" style="font-size:28px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">(954) 294-4831</a>
         <span style="font-size:14px;color:var(--grey)">Monday – Friday &nbsp;·&nbsp; 8:30am – 4:00pm</span>
       </div>
       <a href="/apply/" class="btn-grad">Submit an Open Application →</a>
