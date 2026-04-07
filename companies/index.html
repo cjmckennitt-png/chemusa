@@ -68,13 +68,24 @@
     .company-card p{font-size:14px;color:var(--grey);line-height:1.75;font-weight:300}
     .company-tag{display:inline-block;margin-top:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--grad-soft);border:1px solid rgba(51,117,183,.2);padding:4px 12px;border-radius:100px;color:var(--light)}
 
-    /* COMING SOON PLACEHOLDER */
-    .coming-soon-band{background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 24px;text-align:center}
-    .coming-soon-inner{max-width:600px;margin:0 auto}
-    .coming-soon-icon{width:64px;height:64px;background:var(--grad);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
-    .coming-soon-icon svg{width:32px;height:32px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-    .coming-soon-band h3{font-size:28px;font-weight:800;margin-bottom:12px}
-    .coming-soon-band p{font-size:16px;color:var(--light);font-weight:300;line-height:1.7}
+    /* COMPANY PROFILES */
+    .profiles-section{padding:80px 24px;background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .profiles-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+    .profile-card{display:grid;grid-template-columns:320px 1fr;background:var(--surface);border:1px solid var(--border);transition:background .25s,border-color .25s;position:relative;overflow:hidden}
+    .profile-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--grad);transform:scaleY(0);transform-origin:top;transition:transform .35s}
+    .profile-card:hover{background:var(--surface2);border-color:rgba(51,117,183,.25)}
+    .profile-card:hover::before{transform:scaleY(1)}
+    .profile-logo-col{display:flex;align-items:center;justify-content:center;padding:40px 32px;background:rgba(0,0,0,.25);border-right:1px solid var(--border)}
+    .profile-logo-link{display:flex;align-items:center;justify-content:center;width:100%;transition:transform .25s,opacity .25s}
+    .profile-logo-link:hover{transform:scale(1.04);opacity:.9}
+    .profile-logo-link img,.profile-logo-link svg{max-width:220px;max-height:120px;width:100%;height:auto;object-fit:contain}
+    .profile-info{padding:40px 48px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+    .profile-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--grad-soft);border:1px solid rgba(51,117,183,.2);padding:4px 12px;border-radius:100px;color:var(--light);width:fit-content}
+    .profile-name{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+    .profile-desc{font-size:15px;color:var(--light);font-weight:300;line-height:1.75;max-width:520px}
+    .profile-visit{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:14px;font-weight:600;color:var(--blue2);letter-spacing:.02em;transition:color .2s,gap .2s}
+    .profile-visit:hover{color:var(--white);gap:12px}
+    .profile-visit svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 
     /* CTA */
     .cta-section{padding:120px 24px;text-align:center}
@@ -117,7 +128,10 @@
       .section{padding:60px 20px}
       .intro-grid{grid-template-columns:1fr;gap:40px}
       .intro-stat-row{grid-template-columns:1fr}
-      .companies-grid{grid-template-columns:1fr}
+      .profile-card{grid-template-columns:1fr}
+      .profile-logo-col{border-right:none;border-bottom:1px solid var(--border);padding:32px 24px}
+      .profile-logo-link img,.profile-logo-link svg{max-width:180px;max-height:90px}
+      .profile-info{padding:28px 24px}
       .cta-section{padding:80px 20px}
       .footer-top{grid-template-columns:1fr 1fr}
     }
@@ -193,16 +207,57 @@
   </div>
 </section>
 
-<!-- COMPANIES PLACEHOLDER -->
-<div class="coming-soon-band">
-  <div class="coming-soon-inner reveal">
-    <div class="coming-soon-icon">
-      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<!-- COMPANY PROFILES -->
+<section class="profiles-section">
+  <div class="profiles-inner">
+
+    <!-- Future Industrial Products -->
+    <div class="profile-card reveal">
+      <div class="profile-logo-col">
+        <a href="https://futureindustrialproducts.com" target="_blank" rel="noopener" class="profile-logo-link">
+          <img src="/images/logo-future-industrial.png" alt="Future Industrial Products">
+        </a>
+      </div>
+      <div class="profile-info">
+        <span class="profile-badge">Industrial Cleaning</span>
+        <h3 class="profile-name">Future Industrial Products</h3>
+        <p class="profile-desc">Wholesale distributor specializing in concentrated industrial cleaning solutions — self-dissolving cleaning pods engineered for warehouses, manufacturing plants, and commercial facilities across all 50 states.</p>
+        <a href="https://futureindustrialproducts.com" target="_blank" rel="noopener" class="profile-visit">Visit Website <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
     </div>
-    <h3>Company Profiles Coming Soon</h3>
-    <p>We're putting the finishing touches on detailed profiles for each of our brands. Check back soon — or give us a call to learn more about the full Chem USA family of companies.</p>
+
+    <!-- Universal Solutions -->
+    <div class="profile-card reveal">
+      <div class="profile-logo-col">
+        <a href="https://universalsolutionsusa.com" target="_blank" rel="noopener" class="profile-logo-link">
+          <img src="/images/logo-universal-solutions.png" alt="Universal Solutions USA">
+        </a>
+      </div>
+      <div class="profile-info">
+        <span class="profile-badge">Maintenance Supply</span>
+        <h3 class="profile-name">Universal Solutions USA</h3>
+        <p class="profile-desc">Leading wholesale distributor setting the standard in maintenance supply — delivering professional-grade, environmentally responsible cleaning and degreasing products to manufacturing plants and commercial facilities nationwide.</p>
+        <a href="https://universalsolutionsusa.com" target="_blank" rel="noopener" class="profile-visit">Visit Website <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+    </div>
+
+    <!-- American Research Khemicals -->
+    <div class="profile-card reveal">
+      <div class="profile-logo-col">
+        <a href="https://www.americanresearchkhem.com" target="_blank" rel="noopener" class="profile-logo-link">
+          <img src="/images/logo-ark.svg" alt="American Research Khemicals">
+        </a>
+      </div>
+      <div class="profile-info">
+        <span class="profile-badge">Specialty Chemicals</span>
+        <h3 class="profile-name">American Research Khemicals</h3>
+        <p class="profile-desc">USA-manufactured specialty chemical products serving aerospace, automotive, manufacturing, pharmaceutical, and industrial sectors. Trusted across a broad range of industries for quality, compliance, and American-made formulas.</p>
+        <a href="https://www.americanresearchkhem.com" target="_blank" rel="noopener" class="profile-visit">Visit Website <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
 <!-- CTA -->
 <section class="cta-section">
